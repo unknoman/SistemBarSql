@@ -57,5 +57,29 @@ namespace sqlProyecto.cliente
         }
 
 
+
+        public void ActualizarCliente(int id, string nombre)
+        {
+            Cliente cliente1 = new Cliente();
+            try
+            {
+                string query = "UPDATE barm.cliente SET Nombre = @nombre WHERE idCliente = @IdCliente;";
+                SQLcon db = new SQLcon();
+                db.Conexion.Open();
+                SqlCommand comando = new SqlCommand(query, db.Conexion);
+                comando.Parameters.Add(new SqlParameter("@nombre", nombre));
+                comando.Parameters.Add(new SqlParameter("@IdCliente", id));
+                comando.ExecuteNonQuery();
+                db.CerrarConec();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
+
     }
 }

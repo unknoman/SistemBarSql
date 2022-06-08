@@ -43,8 +43,6 @@ namespace sqlProyecto
             {
                 controlador.cargarDatos(this.sqlcliente, this.clientesgrid);
             }
-
-            MessageBox.Show("id:" + Cliente.getId());
         }
 
         private void button7_Click(object sender, EventArgs e)
