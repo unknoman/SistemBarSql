@@ -11,7 +11,7 @@ namespace sqlProyecto.cliente
     class Cliente
     {
        private int id;
-       private string nombre = "";
+       private string nombre = "test";
 
 
        public void SetNombre(string nombre)
