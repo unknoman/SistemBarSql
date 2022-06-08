@@ -10,6 +10,7 @@ namespace sqlProyecto.clases
     {
         private string nombre;
         private int precio;
+        private int otro;
 
 
         public void setNombre(string nombre)
