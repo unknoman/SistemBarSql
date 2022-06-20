@@ -13,7 +13,8 @@ namespace sqlProyecto
 {
     public partial class EditarCliente : Form
     {
-        Cliente cliente = new Cliente();
+        Cliente cliente1 = new Cliente();
+
         public EditarCliente()
         {
             InitializeComponent();
@@ -21,10 +22,11 @@ namespace sqlProyecto
 
         private void button1_Click(object sender, EventArgs e)
         {
-            cliente.SetNombre(NombreEdit.Text.ToString());
-            Cliente.ActualizarCliente(Cliente.getId(), Cliente.GetNombre());
-            MessageBox.Show(cliente.GetNombre());
-            this.DialogResult = DialogResult.OK;
+
+            cliente1.SetNombre(NombreEdit.Text.ToString());
+            cliente1.ActualizarCliente(cliente1.getId(), cliente1.GetNombre());
+            MessageBox.Show("" + cliente1.getId());
+            this.DialogResult = DialogResult.OK; 
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -10,8 +10,9 @@ namespace sqlProyecto.cliente
 {
     class Cliente
     {
-       private int id;
-       private string nombre = "";
+        protected int id;
+        protected string nombre;
+        private static int id1;
 
 
        public void SetNombre(string nombre)
@@ -27,11 +28,12 @@ namespace sqlProyecto.cliente
         public void Setid(int id)
         {
             this.id = id;
+            id1 = id;
         }
 
         public int getId()
         {
-            return this.id;
+            return id1;
         }
 
 
@@ -67,8 +69,8 @@ namespace sqlProyecto.cliente
                 SQLcon db = new SQLcon();
                 db.Conexion.Open();
                 SqlCommand comando = new SqlCommand(query, db.Conexion);
-                comando.Parameters.Add(new SqlParameter("@nombre", nombre));
                 comando.Parameters.Add(new SqlParameter("@IdCliente", id));
+                comando.Parameters.Add(new SqlParameter("@nombre", nombre));
                 comando.ExecuteNonQuery();
                 db.CerrarConec();
             }

@@ -9,9 +9,10 @@ namespace sqlProyecto
     {
         string sqlcliente = "SELECT * FROM barm.cliente";
         string sqlProducto = "SELECT * FROM barm.Producto";
+        string sqlEliminar = "DELETE FROM barm.cliente WHERE id = @id";
         string sqlPedido = "pedido_Join";
         Controlador controlador = new Controlador();
-        Cliente Cliente = new Cliente();
+        Cliente cliente = new Cliente();
         AgregarCliente agregarCliente = new AgregarCliente();
         EditarCliente editarCliente = new EditarCliente();
         public Form1()
@@ -38,9 +39,11 @@ namespace sqlProyecto
 
         private void button8_Click(object sender, EventArgs e)
         {
-            Cliente.Setid(Convert.ToInt32(this.clientesgrid.SelectedRows[0].Cells[0].Value));
+            cliente.Setid(Convert.ToInt32(this.clientesgrid.SelectedRows[0].Cells[0].Value));
+            cliente.getId();
             if (editarCliente.ShowDialog() == DialogResult.OK)
             {
+                MessageBox.Show("" + cliente.getId());
                 controlador.cargarDatos(this.sqlcliente, this.clientesgrid);
             }
         }
@@ -59,5 +62,13 @@ namespace sqlProyecto
 
         }
 
+        private void button9_Click(object sender, EventArgs e)
+        {
+            
+            if(MessageBox.Show("¿Seguro que desea borrar el cliente: " + Convert.ToString(this.clientesgrid.SelectedRows[0].Cells[1].Value) + "?", "Atención", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+
+            }
+        }
     }
 }
