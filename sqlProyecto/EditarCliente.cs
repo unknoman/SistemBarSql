@@ -22,11 +22,17 @@ namespace sqlProyecto
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(!NombreEdit.Text.Equals(""))
+            {
+                cliente1.SetNombre(NombreEdit.Text.ToString());
+                cliente1.ActualizarCliente(cliente1.getId(), cliente1.GetNombre());
+                MessageBox.Show("" + cliente1.getId());
+                this.DialogResult = DialogResult.OK;
+            } else
+            {
+                MessageBox.Show("El campo no tiene que estar en blanco");
+            }
 
-            cliente1.SetNombre(NombreEdit.Text.ToString());
-            cliente1.ActualizarCliente(cliente1.getId(), cliente1.GetNombre());
-            MessageBox.Show("" + cliente1.getId());
-            this.DialogResult = DialogResult.OK; 
         }
 
         private void button2_Click(object sender, EventArgs e)

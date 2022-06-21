@@ -64,10 +64,11 @@ namespace sqlProyecto
 
         private void button9_Click(object sender, EventArgs e)
         {
-            
             if(MessageBox.Show("¿Seguro que desea borrar el cliente: " + Convert.ToString(this.clientesgrid.SelectedRows[0].Cells[1].Value) + "?", "Atención", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-
+                    cliente.Setid(Convert.ToInt32(this.clientesgrid.SelectedRows[0].Cells[0].Value));
+                    cliente.borrarcliente(cliente.getId());
+                    controlador.cargarDatos(this.sqlcliente, this.clientesgrid);
             }
         }
     }

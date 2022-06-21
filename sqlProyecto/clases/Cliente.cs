@@ -13,9 +13,9 @@ namespace sqlProyecto.cliente
         protected int id;
         protected string nombre;
         private static int id1;
+        SQLcon db = new SQLcon();
 
-
-       public void SetNombre(string nombre)
+        public void SetNombre(string nombre)
         {
             this.nombre = nombre;
         }
@@ -39,11 +39,9 @@ namespace sqlProyecto.cliente
 
         public void insertarCliente(String nombre)
         {
-            Cliente cliente1 = new Cliente();
             try
             {
                 string query = "INSERT INTO barm.cliente (Nombre, Creacion) VALUES (@nombre, GETDATE());";
-                SQLcon db = new SQLcon();
                 db.Conexion.Open();
                 SqlCommand comando = new SqlCommand(query, db.Conexion);
                 comando.Parameters.Add(new SqlParameter("@nombre", nombre));
@@ -58,6 +56,16 @@ namespace sqlProyecto.cliente
 
         }
 
+
+        public void borrarcliente(int idcliente)
+        {
+             string queryborrarcliente = "DELETE FROM barm.cliente WHERE idCliente = @id";
+             db.Conexion.Open();
+             SqlCommand comando = new SqlCommand(queryborrarcliente, db.Conexion);
+             comando.Parameters.Add(new SqlParameter("@id", idcliente));
+             comando.ExecuteNonQuery();
+            db.Conexion.Close();
+        }
 
 
         public void ActualizarCliente(int id, string nombre)
