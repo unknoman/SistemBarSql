@@ -43,7 +43,6 @@ namespace sqlProyecto
             cliente.getId();
             if (editarCliente.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("" + cliente.getId());
                 controlador.cargarDatos(this.sqlcliente, this.clientesgrid);
             }
         }

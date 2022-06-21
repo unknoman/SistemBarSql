@@ -26,11 +26,10 @@ namespace sqlProyecto
             {
                 cliente1.SetNombre(NombreEdit.Text.ToString());
                 cliente1.ActualizarCliente(cliente1.getId(), cliente1.GetNombre());
-                MessageBox.Show("" + cliente1.getId());
                 this.DialogResult = DialogResult.OK;
             } else
             {
-                MessageBox.Show("El campo no tiene que estar en blanco");
+                MessageBox.Show("Tenes que completar el campo para poder editar el nombre");
             }
 
         }
