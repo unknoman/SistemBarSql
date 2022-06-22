@@ -40,11 +40,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Pestanas = new System.Windows.Forms.TabControl();
             this.Pedidos = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.pedidosgrid = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button13 = new System.Windows.Forms.Button();
@@ -89,6 +89,7 @@
             this.Pestanas.Controls.Add(this.clientestab);
             this.Pestanas.Controls.Add(this.tabPage3);
             this.Pestanas.Controls.Add(this.tabPage4);
+            this.Pestanas.ImeMode = System.Windows.Forms.ImeMode.On;
             this.Pestanas.Location = new System.Drawing.Point(0, 3);
             this.Pestanas.Name = "Pestanas";
             this.Pestanas.SelectedIndex = 0;
@@ -98,11 +99,11 @@
             // Pedidos
             // 
             this.Pedidos.BackColor = System.Drawing.Color.Black;
+            this.Pedidos.Controls.Add(this.textBox1);
             this.Pedidos.Controls.Add(this.button4);
             this.Pedidos.Controls.Add(this.button3);
             this.Pedidos.Controls.Add(this.button2);
             this.Pedidos.Controls.Add(this.pedidosgrid);
-            this.Pedidos.Controls.Add(this.textBox1);
             this.Pedidos.Controls.Add(this.button1);
             this.Pedidos.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.Pedidos.Location = new System.Drawing.Point(4, 24);
@@ -111,6 +112,13 @@
             this.Pedidos.Size = new System.Drawing.Size(762, 333);
             this.Pedidos.TabIndex = 0;
             this.Pedidos.Text = "Pedido";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(8, 8);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(183, 23);
+            this.textBox1.TabIndex = 7;
             // 
             // button4
             // 
@@ -121,7 +129,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(184, 33);
             this.button4.TabIndex = 6;
-            this.button4.Text = "Ver Pedido";
+            this.button4.Text = "Gestionar pedido";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -134,7 +142,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(184, 33);
             this.button3.TabIndex = 5;
-            this.button3.Text = "Modificar pedido";
+            this.button3.Text = "Cerrar Pedido";
             this.button3.UseVisualStyleBackColor = false;
             // 
             // button2
@@ -146,8 +154,9 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(184, 33);
             this.button2.TabIndex = 4;
-            this.button2.Text = "Nuevo Pedido";
+            this.button2.Text = "Abrir Pedido";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // pedidosgrid
             // 
@@ -174,31 +183,21 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.pedidosgrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.pedidosgrid.GridColor = System.Drawing.Color.DarkGreen;
-            this.pedidosgrid.Location = new System.Drawing.Point(3, 33);
+            this.pedidosgrid.Location = new System.Drawing.Point(3, 46);
             this.pedidosgrid.MultiSelect = false;
             this.pedidosgrid.Name = "pedidosgrid";
             this.pedidosgrid.RowHeadersVisible = false;
             this.pedidosgrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.pedidosgrid.RowTemplate.Height = 25;
             this.pedidosgrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.pedidosgrid.Size = new System.Drawing.Size(756, 234);
+            this.pedidosgrid.Size = new System.Drawing.Size(756, 221);
             this.pedidosgrid.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox1.Location = new System.Drawing.Point(3, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(179, 23);
-            this.textBox1.TabIndex = 2;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Black;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(199, 3);
+            this.button1.Location = new System.Drawing.Point(197, 8);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 24);
             this.button1.TabIndex = 1;
@@ -228,7 +227,7 @@
             this.button13.ForeColor = System.Drawing.Color.Cornsilk;
             this.button13.Location = new System.Drawing.Point(222, 15);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(150, 32);
+            this.button13.Size = new System.Drawing.Size(150, 23);
             this.button13.TabIndex = 5;
             this.button13.Text = "Buscar";
             this.button13.UseVisualStyleBackColor = false;
@@ -266,7 +265,7 @@
             this.productoGrid.DefaultCellStyle = dataGridViewCellStyle4;
             this.productoGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.productoGrid.GridColor = System.Drawing.Color.Lime;
-            this.productoGrid.Location = new System.Drawing.Point(0, 53);
+            this.productoGrid.Location = new System.Drawing.Point(0, 44);
             this.productoGrid.Name = "productoGrid";
             this.productoGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.productoGrid.RowHeadersVisible = false;
@@ -275,7 +274,7 @@
             this.productoGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.productoGrid.RowTemplate.Height = 25;
             this.productoGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productoGrid.Size = new System.Drawing.Size(766, 191);
+            this.productoGrid.Size = new System.Drawing.Size(766, 200);
             this.productoGrid.TabIndex = 3;
             // 
             // button12
@@ -374,7 +373,7 @@
             this.button6.BackColor = System.Drawing.SystemColors.WindowText;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.button6.Location = new System.Drawing.Point(232, 20);
+            this.button6.Location = new System.Drawing.Point(214, 6);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(104, 25);
             this.button6.TabIndex = 2;
@@ -385,7 +384,7 @@
             // 
             this.textBox2.BackColor = System.Drawing.SystemColors.Window;
             this.textBox2.ForeColor = System.Drawing.Color.Black;
-            this.textBox2.Location = new System.Drawing.Point(26, 20);
+            this.textBox2.Location = new System.Drawing.Point(8, 6);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(185, 23);
             this.textBox2.TabIndex = 1;
@@ -422,7 +421,7 @@
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.clientesgrid.DefaultCellStyle = dataGridViewCellStyle8;
             this.clientesgrid.GridColor = System.Drawing.Color.Red;
-            this.clientesgrid.Location = new System.Drawing.Point(0, 49);
+            this.clientesgrid.Location = new System.Drawing.Point(0, 37);
             this.clientesgrid.Margin = new System.Windows.Forms.Padding(100);
             this.clientesgrid.MinimumSize = new System.Drawing.Size(100, 100);
             this.clientesgrid.MultiSelect = false;
@@ -449,7 +448,7 @@
             this.clientesgrid.RowTemplate.Height = 50;
             this.clientesgrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.clientesgrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.clientesgrid.Size = new System.Drawing.Size(757, 220);
+            this.clientesgrid.Size = new System.Drawing.Size(757, 232);
             this.clientesgrid.TabIndex = 0;
             // 
             // tabPage3
@@ -571,6 +570,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlText;
             this.ClientSize = new System.Drawing.Size(771, 362);
             this.Controls.Add(this.Pestanas);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Bar Sistema";
@@ -602,8 +602,6 @@
         private Button button3;
         private Button button2;
         private DataGridView pedidosgrid;
-        private TextBox textBox1;
-        private Button button1;
         private TabPage tabPage3;
         private TabPage tabPage4;
         private Button button5;
@@ -627,5 +625,7 @@
         private Button button10;
         private DataGridView dataGridView1;
         private Label label6;
+        private TextBox textBox1;
+        private Button button1;
     }
 }

@@ -3,6 +3,8 @@ using System;
 using System.Data;
 using sqlProyecto.controlador;
 using sqlProyecto.cliente;
+using sqlProyecto.pedido;
+
 namespace sqlProyecto
 {
     public partial class Form1 : Form
@@ -10,7 +12,7 @@ namespace sqlProyecto
         string sqlcliente = "SELECT * FROM barm.cliente";
         string sqlProducto = "SELECT * FROM barm.Producto";
         string sqlEliminar = "DELETE FROM barm.cliente WHERE id = @id";
-        string sqlPedido = "pedido_Join";
+        string sqlPedido = "select * from verpedidos";
         Controlador controlador = new Controlador();
         Cliente cliente = new Cliente();
         AgregarCliente agregarCliente = new AgregarCliente();
@@ -34,7 +36,10 @@ namespace sqlProyecto
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            Pedido pedido = new Pedido();
+            detalles detalles = new detalles();
+            pedido.setIdPedido(Convert.ToInt32(this.pedidosgrid.SelectedRows[0].Cells[0].Value));
+            detalles.Show();
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -69,6 +74,10 @@ namespace sqlProyecto
                     cliente.borrarcliente(cliente.getId());
                     controlador.cargarDatos(this.sqlcliente, this.clientesgrid);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
         }
     }
 }
