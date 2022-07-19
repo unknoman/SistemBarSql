@@ -1,6 +1,6 @@
 ﻿namespace sqlProyecto
 {
-    partial class detalles
+    partial class Form2
     {
         /// <summary>
         /// Required designer variable.
@@ -40,6 +40,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.idpedido = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.gridDetallePedido)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +48,6 @@
             // 
             this.gridDetallePedido.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.gridDetallePedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridDetallePedido.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.gridDetallePedido.Location = new System.Drawing.Point(30, 52);
             this.gridDetallePedido.Name = "gridDetallePedido";
             this.gridDetallePedido.RowTemplate.Height = 25;
@@ -178,7 +178,11 @@
             this.idpedido.TabIndex = 14;
             this.idpedido.Text = "0";
             // 
-            // detalles
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
+            // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -197,7 +201,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.gridDetallePedido);
             this.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.Name = "detalles";
+            this.Name = "Form2";
             this.Text = "Pedidos";
             ((System.ComponentModel.ISupportInitialize)(this.gridDetallePedido)).EndInit();
             this.ResumeLayout(false);
@@ -219,5 +223,6 @@
         private Button button6;
         private Label label6;
         private Label idpedido;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

@@ -37,9 +37,9 @@ namespace sqlProyecto
         private void button4_Click(object sender, EventArgs e)
         {
             Pedido pedido = new Pedido();
-            detalles detalles = new detalles();
+          //  detalles detalles = new detalles();
             pedido.setIdPedido(Convert.ToInt32(this.pedidosgrid.SelectedRows[0].Cells[0].Value));
-            detalles.Show();
+          //  detalles.Show();
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -78,6 +78,10 @@ namespace sqlProyecto
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Form2 form2 = new Form2();
+            Pedido pedido = new Pedido();
+            pedido.setIdPedido(Convert.ToInt32(this.pedidosgrid.SelectedRows[0].Cells[0].Value));
+            form2.ShowDialog();
         }
     }
 }

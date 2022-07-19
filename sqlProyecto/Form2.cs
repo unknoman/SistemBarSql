@@ -7,29 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using sqlProyecto.pedido;
 using sqlProyecto.controlador;
 
 namespace sqlProyecto
 {
-    public partial class detalles : Form
+    public partial class Form2 : Form
     {
-        SQLcon db = new SQLcon();
-        Controlador controlador = new Controlador();
-        Pedido ped = new Pedido();
-        string querydatos = "EXEC vertotal 1";
-        public detalles()
+
+        public Form2()
         {
             InitializeComponent();
-            controlador.cargarDatos(querydatos, gridDetallePedido);
-
+            Pedido pedido = new Pedido();
+            Controlador controlador = new Controlador();
+            int idpedido = pedido.getIdPedido();
+            controlador.cargarDatos();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            detalles detalles = new detalles();
-            detalles.Text("id:" + ped.getIdPedido);
+
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
         }
 
         private void button1_Click(object sender, EventArgs e)
