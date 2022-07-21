@@ -21,7 +21,7 @@ namespace sqlProyecto
             Pedido pedido = new Pedido();
             Controlador controlador = new Controlador();
             int idpedido = pedido.getIdPedido();
-            controlador.cargarDatos();
+           controlador.cargarDatos("SELECT Nombre, Cantidad, Estado, Unidad, TotalProducto FROM detallepedido", gridDetallePedido);
         }
 
         private void button6_Click(object sender, EventArgs e)

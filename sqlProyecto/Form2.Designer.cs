@@ -59,9 +59,9 @@
             this.button2.BackColor = System.Drawing.Color.Black;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button2.Location = new System.Drawing.Point(708, 305);
+            this.button2.Location = new System.Drawing.Point(680, 305);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(144, 35);
+            this.button2.Size = new System.Drawing.Size(172, 35);
             this.button2.TabIndex = 2;
             this.button2.Text = "Borrar";
             this.button2.UseVisualStyleBackColor = false;
@@ -150,7 +150,7 @@
             this.button6.ForeColor = System.Drawing.Color.Cyan;
             this.button6.Location = new System.Drawing.Point(335, 305);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(347, 35);
+            this.button6.Size = new System.Drawing.Size(326, 35);
             this.button6.TabIndex = 12;
             this.button6.Text = "Ver";
             this.button6.UseVisualStyleBackColor = false;
@@ -200,7 +200,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.gridDetallePedido);
-            this.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Name = "Form2";
             this.Text = "Pedidos";
             ((System.ComponentModel.ISupportInitialize)(this.gridDetallePedido)).EndInit();
